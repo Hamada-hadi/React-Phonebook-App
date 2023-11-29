@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Button from "./Button"
 import Modal from "./Modal"
 import { server_calls } from '../api/server';
-import { DataGrid, GridColDef } from '@/x-data-grid';
+import { DataGrid, GridColDef } from '@mui/x-data-grid';
 import { useGetData } from '../custom-hooks/FetchData';
 
 

@@ -1,4 +1,4 @@
-import { useSubmit } from "react-router-dom"
+// import { useSubmit } from "react-router-dom"
 import Button from "./Button"
 import Input from "./Input"
 
@@ -15,6 +15,7 @@ const ContactForm = ( props:ContactFormProps) => {
   const { register, handleSubmit } = useForm({})
   const dispatch = useDispatch();
   const store = useStore();
+  
 
   const onSubmit = (data: any, event: any) => {
     console.log(`ID: ${typeof props.id}`);

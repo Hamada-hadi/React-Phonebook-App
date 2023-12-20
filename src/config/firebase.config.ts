@@ -1,11 +1,11 @@
 
 // Your web app's Firebase configuration
 export const firebaseConfig = {
-  apiKey: "AIzaSyCpqWyUT-fwhgdNlh6-blBO2BR6qZwiqiA",
-  authDomain: "sp-fs-react-update-v18-1a3c5.firebaseapp.com",
-  projectId: "sp-fs-react-update-v18-1a3c5",
-  storageBucket: "sp-fs-react-update-v18-1a3c5.appspot.com",
-  messagingSenderId: "430378967987",
-  appId: "1:430378967987:web:6ae6b4646bdea425d021c6"
+  apiKey: "AIzaSyDJXdLOVbCquz917jbYT1eaTul8ALFEdMA",
+  authDomain: "react-app-3c010.firebaseapp.com",
+  projectId: "react-app-3c010",
+  storageBucket: "react-app-3c010.appspot.com",
+  messagingSenderId: "799873726914",
+  appId: "1:799873726914:web:a6572bd0433bee60e5be5b"
 };
 

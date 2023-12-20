@@ -9,6 +9,7 @@ import { chooseFirst, chooseLast, chooseEmail, chooseAddress, choosePhone } from
 
 interface ContactFormProps {
   id?: string[]
+  onClose: () => void;
 }
 
 const ContactForm = ( props:ContactFormProps) => {
@@ -24,7 +25,7 @@ const ContactForm = ( props:ContactFormProps) => {
     if (props.id && props.id.length > 0) {
       server_calls.update(props.id[0], data)
       console.log(`Updated: ${ data.first } ${ props.id }`)
-      setTimeout( () => {window.location.reload()}, 500);
+      setTimeout( () => {window.location.reload()}, 1000);
       event.target.reset()
     } else {
       dispatch(chooseFirst(data.first));
@@ -34,6 +35,10 @@ const ContactForm = ( props:ContactFormProps) => {
       dispatch(chooseAddress(data.address));
 
       server_calls.create(store.getState())
+      setTimeout(() => {window.location.reload()}, 1000);
+      event.target.reset()
+
+      // props.onClose();
       
     }
   }

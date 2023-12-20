@@ -1,7 +1,33 @@
+// import { useEffect } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import { signInWithPopup } from 'firebase/auth';
+// import { auth, Providers } from '../config/firebasr'
+
+// interface Props {
+//     children: React.ReactNode;
+// }
+
+// const AuthChecker = ({ children }: Props) => {
+//     const navigate = useNavigate();
+
+//     useEffect(() => {
+//         if (!auth.currentUser) {
+//             navigate("../");
+//             signInWithPopup(auth,Providers.google)
+//         }
+//     }, []);
+
+//     return (
+//         <>{children}</>
+//     );
+// };
+
+// export default AuthChecker;
+
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signInWithPopup } from 'firebase/auth';
-import { auth, Providers } from '../config/firebasr'
+import { useAuth0 } from '@auth0/auth0-react';
+
 
 interface Props {
     children: React.ReactNode;
@@ -9,13 +35,19 @@ interface Props {
 
 const AuthChecker = ({ children }: Props) => {
     const navigate = useNavigate();
+    const { isAuthenticated, isLoading, loginWithRedirect } = useAuth0();
 
     useEffect(() => {
-        if (!auth.currentUser) {
-            navigate("../");
-            signInWithPopup(auth,Providers.google)
+        if (!isLoading && !isAuthenticated) {
+            loginWithRedirect();
         }
-    }, []);
+    }, [isLoading, isAuthenticated, loginWithRedirect]);
+
+    useEffect(() => {
+        if (!isLoading && isAuthenticated) {
+            navigate('/dashboard');
+        }
+    }, [isLoading, isAuthenticated, navigate]);
 
     return (
         <>{children}</>
